@@ -1,32 +1,40 @@
 package desafio.reprodutor;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ReprodutorMusical {
-    List<Musica> listaDeMusicas = new ArrayList<>();
+    private Map<String, Musica> mapaDeMusicas = new HashMap<>();
 
     public void adicionarMusica(String nomeMusica, String artista, int duracaoEmSegundos, int anoLancamento) {
-        if (!verificarMusica(nomeMusica)) {
+        if (!mapaDeMusicas.containsKey(nomeMusica)) {
             Musica musicaNova = new Musica(nomeMusica, artista, duracaoEmSegundos, anoLancamento);
-            listaDeMusicas.add(musicaNova);
+            mapaDeMusicas.put(nomeMusica, musicaNova);
             System.out.println(musicaNova);
+        } else {
+            System.out.println("Música já existente!");
         }
-
     }
 
-    public boolean verificarMusica(String nomeMusica) {
-        boolean existe = false;
-        for (Musica musica : listaDeMusicas) {
-            if (musica.getNomeMusica().equals(nomeMusica)) {
-                System.out.println("Musica já existente!");
-                existe = !existe;
-            }
+    public void comecarMusica(String nomeMusica) {
+        Musica musica = mapaDeMusicas.get(nomeMusica);
+        if (musica != null) {
+            System.out.println("Começando música " + musica.getNomeMusica() + " de " + musica.getArtista());
+        } else {
+            System.out.println("Música não encontrada.");
         }
-        return existe;
     }
 
-    public void comecarMusica() {
-        System.out.println("Começando música...");
+    public void mostrarLista() {
+        for (Musica musica : mapaDeMusicas.values()) {
+            System.out.println(musica);
+        }
+    }
+
+    public void excluirMusica(String nomeMusica) {
+        if (mapaDeMusicas.containsKey(nomeMusica)) {
+            mapaDeMusicas.remove(nomeMusica);
+            System.out.println("Música removida: " + nomeMusica);
+        } else {
+            System.out.println("Música não encontrada.");
+        }
     }
 }

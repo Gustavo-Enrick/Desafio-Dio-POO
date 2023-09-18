@@ -30,6 +30,6 @@ public class Musica {
     }
 
     public String toString() {
-        return "O nome da música é " + getNomeMusica() + " e tem duração de " + getDuracaoEmSegundos() + " segundos.";
+        return "O nome da música é " + getNomeMusica() + " do artista " + getArtista() + ", foi lançada no ano " + getAnoLancamento() +" e tem duração de " + getDuracaoEmSegundos() + " segundos.";
     }
 }
