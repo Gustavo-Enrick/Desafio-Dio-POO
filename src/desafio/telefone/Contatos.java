@@ -1,6 +1,6 @@
 package desafio.telefone;
 
-public class Contatos {
+class Contatos {
     private String nome;
     private String numero;
     Contatos(String nome,String numero){

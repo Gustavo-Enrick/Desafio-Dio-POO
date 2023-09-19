@@ -1,5 +1,8 @@
 package desafio.reprodutor;
+
 import java.util.*;
+
+import desafio.exeções.MusicaNaoEncontradaException;
 
 public class ReprodutorMusical {
     private Map<String, Musica> mapaDeMusicas = new HashMap<>();
@@ -23,10 +26,19 @@ public class ReprodutorMusical {
         }
     }
 
-    public void mostrarLista() {
-        for (Musica musica : mapaDeMusicas.values()) {
-            System.out.println(musica);
-        }
+    public void mostrarLista() throws MusicaNaoEncontradaException {
+    if (mapaDeMusicas.isEmpty()) {
+        throw new MusicaNaoEncontradaException("Não há músicas.");
+    }
+
+    for (Musica musica : mapaDeMusicas.values()) {
+        System.out.println(musica);
+    }
+}
+
+    public void excluirLista(){
+        mapaDeMusicas.clear();
+        System.out.println("Lista excluida");
     }
 
     public void excluirMusica(String nomeMusica) {

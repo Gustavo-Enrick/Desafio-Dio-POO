@@ -1,6 +1,6 @@
 package desafio.reprodutor;
 
-public class Musica {
+class Musica {
     private String nomeMusica;
     private String artista;
     private int duracaoEmSegundos;
