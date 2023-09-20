@@ -7,7 +7,7 @@ package desafio;
 public class MeuIphone {
     public static void main(String[] args) throws Exception {
         /*
-         * ReprodutorMusical reprodutor = new ReprodutorMusical();
+         *ReprodutorMusical reprodutor = new ReprodutorMusical();
         reprodutor.adicionarMusica("Bohemian Rhapsody", "Queen", 354, 1975);
         reprodutor.adicionarMusica("Shape of You", "Ed Sheeran", 234, 2017);
         reprodutor.adicionarMusica("Stairway to Heaven", "Led Zeppelin", 482, 1971);
@@ -25,6 +25,7 @@ public class MeuIphone {
         telefonia.adicionarContato("João", "123456789");
         telefonia.adicionarContato("Maria", "987654321");
         telefonia.adicionarContato("Pedro", "555555555");
+        tefonia.mostrarListaContatos();
         telefonia.excluirContato("Pedro");
         telefonia.ligarContatos("João");
         */

@@ -11,7 +11,7 @@ public class ReprodutorMusical {
         if (!mapaDeMusicas.containsKey(nomeMusica)) {
             Musica musicaNova = new Musica(nomeMusica, artista, duracaoEmSegundos, anoLancamento);
             mapaDeMusicas.put(nomeMusica, musicaNova);
-            System.out.println(musicaNova);
+            System.out.println("Música " + nomeMusica + " do(a) artista " + artista + " adicionado com sucesso!");
         } else {
             System.out.println("Música já existente!");
         }

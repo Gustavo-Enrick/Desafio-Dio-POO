@@ -6,7 +6,7 @@ import java.util.Random;
 import desafio.exeções.ContatoNaoExiste;
 
 public class Telefonia {
-    public Map<String, Contatos> mapaDeContatos = new HashMap<>();
+    private Map<String, Contatos> mapaDeContatos = new HashMap<>();
 
     public void adicionarContato(String nome, String numero) {
         boolean contatoExistente = false;
@@ -49,7 +49,7 @@ public class Telefonia {
     private String assuntos[] = { "Cinema", "Desenho", "Comida", "Música", "Video-game" };
 
     public void ligarContatos(String nome) throws ContatoNaoExiste {
-        int tentativa = 2;
+        int tentativa = 0;
         Contatos contato = verificaNome(nome);
 
         if (contato != null) {
