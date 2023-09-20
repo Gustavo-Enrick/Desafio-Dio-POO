@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Random;
 import desafio.exeções.ContatoNaoExiste;
 
-public class Telefonia{
+public class Telefonia {
     public Map<String, Contatos> mapaDeContatos = new HashMap<>();
 
     public void adicionarContato(String nome, String numero) {
@@ -45,37 +45,48 @@ public class Telefonia{
         }
     }
 
-
     Random random = new Random();
-    private String assuntos []= {"Cinema","Desenho","Comida","Música","Video-game"};
-    public void ligarContatos(String nome){
-        int tentativa = 0;
+    private String assuntos[] = { "Cinema", "Desenho", "Comida", "Música", "Video-game" };
+
+    public void ligarContatos(String nome) throws ContatoNaoExiste {
+        int tentativa = 2;
         Contatos contato = verificaNome(nome);
-        System.out.println("Ligando para " + contato.getName());
-        do {
-            if(ligarTentiva()){
-                System.out.println("Contato realizado com sucesso na tentativa " + (tentativa + 1) + "!");
-                atenderTelefone();
-                break;
-            }else if(tentativa < 3){
-                System.out.println("Tentativa " + (tentativa + 1) + " falhou!");
-                
-            }else if(tentativa == 2){
-                iniciarCorrerioVoz();
+
+        if (contato != null) {
+            System.out.println("Ligando para " + contato.getName());
+
+            boolean sucesso = false;
+
+            while (tentativa < 3) {
+                if (ligarTentiva()) {
+                    System.out.println("Contato realizado com sucesso na tentativa " + (tentativa + 1) + "!");
+                    atenderTelefone();
+                    sucesso = true;
+                    break;
+                } else {
+                    System.out.println("Tentativa " + (tentativa + 1) + " falhou!");
+                }
+
+                tentativa++;
             }
-            tentativa++;
-        } while (tentativa < 3);
+
+            if (!sucesso) {
+                iniciarCorreioVoz();
+            }
+        } else {
+            throw new ContatoNaoExiste("Contato não encontrado: " + nome);
+        }
     }
 
-    private boolean ligarTentiva(){
+    private boolean ligarTentiva() {
         int numeroAleatorio = random.nextInt(2) + 1;
         return numeroAleatorio == 1;
     }
 
-    private void atenderTelefone(){
+    private void atenderTelefone() {
         String assuntoAleatorio = assuntos[random.nextInt(5)];
         int duracaoConversa = random.nextInt(16);
-        System.out.println("A conversa durou " + duracaoConversa +" minutos!");
+        System.out.println("A conversa durou " + (duracaoConversa + 1) + " minutos!");
         System.out.println("O tema da conversa foi " + assuntoAleatorio + "!");
     }
 
@@ -89,10 +100,8 @@ public class Telefonia{
         }
         return contatoRetorna;
     }
-    
-    
 
-    private void iniciarCorrerioVoz(){
+    private void iniciarCorreioVoz() {
         String assuntoAleatorio = assuntos[random.nextInt(5)];
         System.out.println("Iniciando Correio de Voz..");
         System.out.println("Gravando mensagem sobre o assunto " + assuntoAleatorio);

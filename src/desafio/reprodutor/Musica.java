@@ -6,7 +6,7 @@ class Musica {
     private int duracaoEmSegundos;
     private int anoLancamento;
 
-    public Musica(String nomeMusica,String artista,int duracaoEmSegundos,int anoLancamento){
+    Musica(String nomeMusica,String artista,int duracaoEmSegundos,int anoLancamento){
         this.nomeMusica = nomeMusica;
         this.artista = artista;
         this.duracaoEmSegundos = duracaoEmSegundos;
