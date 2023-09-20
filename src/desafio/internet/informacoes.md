@@ -11,7 +11,7 @@
 |fecharNavegador | fechará o navegador e todas as abas abertas,dizendo quantas são.  |
 
 #
-![Comportamento Esperado](src\imagens\Captura de tela 2023-09-20 112818.png)
+![Comportamento Experado](<../../imagens/Captura de tela 2023-09-20 112818.png>)
 #
  
 #Observação

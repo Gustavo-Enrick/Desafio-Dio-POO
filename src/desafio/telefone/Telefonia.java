@@ -9,21 +9,25 @@ public class Telefonia {
     private Map<String, Contatos> mapaDeContatos = new HashMap<>();
 
     public void adicionarContato(String nome, String numero) {
-        boolean contatoExistente = false;
-
-        for (Contatos contato : mapaDeContatos.values()) {
-            if (contato.getName().equals(nome)) {
-                contatoExistente = true;
-                System.out.println("O contato " + nome + " já existe!");
-                break;
-            }
-        }
-
-        if (!contatoExistente) {
+        if (!verificarContato(nome)) {
             Contatos novoContato = new Contatos(nome, numero);
             mapaDeContatos.put(nome, novoContato);
             System.out.println("Contato " + nome + " adicionado com sucesso.");
+        }else{
+            System.out.println("O contato " + nome + " já existe!");
         }
+    }
+
+    private boolean verificarContato(String nomeContato){
+        boolean contatoExistente = false;
+
+        for (Contatos contato : mapaDeContatos.values()) {
+            if (contato.getName().equals(nomeContato)) {
+                contatoExistente = true;
+                break;
+            }
+        }
+        return contatoExistente;
     }
 
     public void mostrarListaContatos() throws ContatoNaoExiste {
@@ -90,7 +94,7 @@ public class Telefonia {
         System.out.println("O tema da conversa foi " + assuntoAleatorio + "!");
     }
 
-    public Contatos verificaNome(String nome) {
+    private Contatos verificaNome(String nome) {
         Contatos contatoRetorna = null;
         for (Contatos contato : mapaDeContatos.values()) {
             if (contato.getName().equals(nome)) {

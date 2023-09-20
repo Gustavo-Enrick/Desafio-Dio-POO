@@ -25,7 +25,7 @@ public class MeuIphone {
         telefonia.adicionarContato("João", "123456789");
         telefonia.adicionarContato("Maria", "987654321");
         telefonia.adicionarContato("Pedro", "555555555");
-        tefonia.mostrarListaContatos();
+        telefonia.mostrarListaContatos();
         telefonia.excluirContato("Pedro");
         telefonia.ligarContatos("João");
         */
